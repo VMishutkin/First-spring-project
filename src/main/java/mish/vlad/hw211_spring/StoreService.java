@@ -1,12 +1,10 @@
 package mish.vlad.hw211_spring;
 
+import java.util.List;
+
 public interface StoreService {
 
-    public boolean addToOrder(Integer... items){
+    public String addToOrder(Integer... items);
 
-    }
-
-    public Order getOrder(){
-
-    }
+    public List<Integer> getOrder();
 }
