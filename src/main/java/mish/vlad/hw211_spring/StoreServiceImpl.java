@@ -7,23 +7,22 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
-public class StoreServiceImpl implements StoreService{
+public class StoreServiceImpl implements StoreService {
+    private final Order cart;
 
-
-    private final List<Integer> items;
     public StoreServiceImpl() {
-        this.items = new ArrayList<Integer>();
+        this.cart = new Order();
 
     }
 
     @Override
-    public boolean addToOrder(Integer... newItems) {
-        return items.addAll(Arrays.asList(newItems));
-
+    public String addToOrder(Integer... newItems) {
+        cart.add(Arrays.asList(newItems));
+        return "Товары " + Arrays.toString(newItems) + " добавлены в корзину";
     }
 
     @Override
-    public Order getOrder() {
-        return null;
+    public List<Integer> getOrder() {
+        return cart.get();
     }
 }
